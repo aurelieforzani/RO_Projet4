@@ -1,6 +1,13 @@
-function [x] = binomiale(p,k,n)
+function [x] = binomiale(k)
 
-x = nchoosek(n,k)*p^k*(1-p)^(n-k);
+global n;
+global p;
+
+if (k >= 0)
+    x = nchoosek(n,k)*p^k*(1-p)^(n-k);
+else
+    x=0;
+end
 return;
 
 end

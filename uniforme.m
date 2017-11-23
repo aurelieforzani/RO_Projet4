@@ -1,6 +1,12 @@
-function [x] = uniforme(i)
+function [x] = uniforme(k)
 
-x = 1/i;
+global n;
+
+if ( 0 <= k && k <= n)
+    x = 1/n;
+else
+    x = 0;
+end
 return;
 
 end
