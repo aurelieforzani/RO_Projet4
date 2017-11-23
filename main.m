@@ -45,7 +45,7 @@ elseif (x == 3)
     %% Loi de poisson
     lambda = 0;
     while (lambda <= 0 )
-        prompt = 'Entrer le paramètre de la loi de poisson \n      >>>  ';
+        prompt = 'Entrer le paramètre de la loi de poisson \n     >>>  ';
         lambda = input(prompt);
     end
     nomLoi = 'poisson';
@@ -54,11 +54,11 @@ elseif (x == 4)
     theta = -9;
     mu = 'a';
     
-    prompt = 'Entrer la moyenne de la loi gaussienne \n      >>>  ';
+    prompt = 'Entrer la moyenne de la loi gaussienne \n     >>>  ';
     mu = input(prompt);
     
     while (theta < 0 )
-        prompt = 'Entrer l écart-type de la loi gausienne \n      >>>  ';
+        prompt = 'Entrer l écart-type de la loi gausienne \n     >>>  ';
         theta = input(prompt);
     end
     nomLoi = 'gaussienne';
@@ -67,12 +67,16 @@ elseif (x == 5)
     p = -2;
     
     while (p <0 || p>1)
-        prompt = 'Entrer la probbailité de la loi géométrique \n      >>>  ';
+        prompt = 'Entrer la probbailité de la loi géométrique \n     >>>  ';
         p = input(prompt);
     end
     nomLoi = 'geometrique';
 end
-    P = getP(5,2,nomLoi)
+    P = getP(5,2,nomLoi);
+    
+    Pi = distributionLimite(P)
+    
+    
     
 end
 
