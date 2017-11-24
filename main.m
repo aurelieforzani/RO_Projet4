@@ -67,12 +67,12 @@ elseif (x == 5)
     p = -2;
     
     while (p <0 || p>1)
-        prompt = 'Entrer la probbailité de la loi géométrique \n     >>>  ';
+        prompt = 'Entrer la probabilité de la loi géométrique \n     >>>  ';
         p = input(prompt);
     end
     nomLoi = 'geometrique';
 end
-    P = getP(5,2,nomLoi);
+    P = getP(7,2,nomLoi);
     
     Pi = distributionLimite(P)
     
