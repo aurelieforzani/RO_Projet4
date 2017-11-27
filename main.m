@@ -1,10 +1,16 @@
-function main
+function [S,s] = main
 
 global n;
 global p;
 global theta;
 global lambda;
 global mu;
+Smax = 30;
+C(1) = 5;
+C(2) = 10;
+C(3) = 10;
+C(4) = 5;
+v = 20;
 
 %% Affichage du menu pour choisir la loi de probabilitée
 
@@ -72,11 +78,27 @@ elseif (x == 5)
     end
     nomLoi = 'geometrique';
 end
-    P = getP(7,2,nomLoi);
     
-    Pi = distributionLimite(P)
+    % on calcul la première valeur de rev
+    P = getP(1, 1, nomLoi);
+    Pi = distributionLimite(P);
+    rev = revenu_moyen(1, 1, Pi, nomLoi, C, v);
+    S = 1;
+    s = 1;
     
-    
+    % On test toutes les possibilités jusqu'à une limite fixé
+    for i=1:Smax % on parcours sur grand S
+        for j = 1:i % on parcours sur petit s
+            P = getP(i,j,nomLoi);
+            Pi = distributionLimite(P);
+            rev_tmp = revenu_moyen(j, i, Pi, nomLoi, C, v); % On calcul le revenu pour ces deux valeures
+            if rev_tmp >= rev
+                rev = rev_tmp;
+                S = i;
+                s = j;
+            end
+        end
+    end
     
 end
 
