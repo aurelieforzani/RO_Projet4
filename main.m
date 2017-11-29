@@ -104,7 +104,7 @@ end
             Pi = distributionLimite(P);
             % On calcul le revenu pour ces deux valeures
             rev_tmp = revenu_moyen(j, i, Pi, nomLoi, C, v); 
-            % S'il est supèrieur au meilleur revenu trouvé
+            % S'il est supérieur au meilleur revenu trouvé
             if rev_tmp >= rev
                 % On met à jour le revenu
                 rev = rev_tmp;
