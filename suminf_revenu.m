@@ -13,7 +13,8 @@ eps = 10^(-6);
 maxiter = 1000;
 somme = 0;
 resultat_func = 1;
-while (i <= maxiter &&  resultat_func>eps) 
+itermin = 20;
+while (i <= maxiter &&  (resultat_func>eps || i <= itermin)) 
     resultat_func = feval(fun_pour_somme, fun , lambda, i );
     somme = somme + resultat_func;
     i = i+1;

@@ -18,13 +18,13 @@ function [ B ] = revenu_moyen(s, s_max, pi_limite, fun, C, v )
 
 for j = 0:(s_max) 
     if j< s 
-        r(j+1) = - C(1)* s_max - C(2) * suminf_revenu((s_max + 1),fun, 'func_add_pour_sum', s_max) - (C(3) + C(4) * (s_max - j)) + v * suminf_revenu(0, fun, 'func_min_pour_sum', s_max);
+        r(j+1) = -C(1)* s_max - C(2) * suminf_revenu((s_max + 1),fun, 'func_add_pour_sum', s_max) - (C(3) + C(4) * (s_max - j)) + v * suminf_revenu(0, fun, 'func_min_pour_sum', s_max);
     else
-        r(j+1) = - C(1) * j - C(2) * suminf_revenu((j+1), fun, 'func_add_pour_sum', j) + v * suminf_revenu(0, fun, 'func_min_pour_sum', j);
+        r(j+1) = -C(1) * j - C(2) * suminf_revenu((j+1), fun, 'func_add_pour_sum', j) + v * suminf_revenu(0, fun, 'func_min_pour_sum', j);
         
     end
 end
-B = sum(pi_limite' .* r);
+B =  sum(pi_limite' .* r);
 
 
 

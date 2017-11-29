@@ -30,7 +30,7 @@ if (x == 1)
     %% Loi uniforme
     n = 0;
     while (n <= 0 || floor(n) ~= n)
-        prompt = 'Entrer la borne supérieure de la loi Uniforme (la borne in étant 0) \n     >>>  ';
+        prompt = 'Entrer la borne supérieure de la loi Uniforme (la borne min étant 0) \n     >>>  ';
         n = input(prompt);
     end
     nomLoi = 'uniforme';
