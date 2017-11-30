@@ -1,4 +1,6 @@
 function [x] = poisson(k)
+% renvoie la probabilité que qu'il y ait k articles de vendus pendant la
+% semaine selon la loi binomiale
 
 %% EN ENTREE
 % k : nombre de succès

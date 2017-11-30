@@ -6,7 +6,6 @@ function [S,s, rev] = main
 
 %% EN ENTREE
 
-
 %% EN SORTIE
 % S : stock maximal
 % s : stock minimal obligant le commerçant à refaire son stock

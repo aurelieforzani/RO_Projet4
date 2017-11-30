@@ -2,7 +2,6 @@ function [x] = binomiale(k)
 % renvoie la probabilité que qu'il y ait k articles de vendus pendant la
 % semaine selon la loi binomiale
 
-
 %% EN ENTREE
 % k : le nombre de succès : (n-k) échecs et k succès
 
