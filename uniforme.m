@@ -15,7 +15,7 @@ if ( 0 <= k && k <= n)
 % Si k est dans le domaine de définition
     x = 1/(n+1);
 else
-    % Sinon
+    % Sinon la probabilité est nulle
     x = 0;
 end
 return;

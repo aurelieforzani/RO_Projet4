@@ -11,7 +11,6 @@ global p;
 global lambda;
 
 %% Initialisation des variables locales (Smax sera recalculé selon la loi choisie)
-Smax = 30; % La dernière itération pour calculer S et s optimal
 C(1) = 5;  % Coût de stockage
 C(2) = 10; % Coût de pénurie
 C(3) = 10; % Partie constante du prix d'achat
@@ -62,6 +61,7 @@ elseif (x == 3)
         prompt = 'Entrer le paramètre de la loi de poisson \n     >>>  ';
         lambda = input(prompt);
     end
+    Smax = 2 * lambda;
     nomLoi = 'poisson';
 end
     
