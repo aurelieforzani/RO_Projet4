@@ -1,4 +1,7 @@
 function [S,s] = main
+% Renvoie S le nombre max d'articles en stock et s le nombre d'articles 
+% restants à partir duquel il faut recommander pour avoir un revenu moyen
+% maximal.
 
 global n;
 global p;
@@ -56,7 +59,7 @@ elseif (x == 3)
     end
     nomLoi = 'poisson';
 elseif (x == 4)
-    %% Loi de gaussienne
+    %% Loi gaussienne
     theta = -9;
     mu = 'a';
     
@@ -99,6 +102,7 @@ end
             end
         end
     end
+    rev
     
 end
 

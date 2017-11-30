@@ -1,6 +1,5 @@
 function [ B ] = revenu_moyen(s, s_max, pi_limite, fun, C, v )
 %Retourne le revenu moyen 
-% 
 %% EN ENTREE
 % s : limite à partir de laquelle il faut commmander l'article pour la
 % semaine suivante ( entier )
@@ -16,14 +15,19 @@ function [ B ] = revenu_moyen(s, s_max, pi_limite, fun, C, v )
 %  Revenu moyen 
 %% DEBUT DE LA FONCTION
 
+%On crée le vecteur r
 for j = 0:(s_max) 
     if j< s 
+        % on a vendu plus de s_max-s articles, il faut donc recommander
         r(j+1) = -C(1)* s_max - C(2) * suminf_revenu((s_max + 1),fun, 'func_add_pour_sum', s_max) - (C(3) + C(4) * (s_max - j)) + v * suminf_revenu(0, fun, 'func_min_pour_sum', s_max);
     else
+        % on a vendu moins de s_max-s articles, il ne faut pas recommander
         r(j+1) = -C(1) * j - C(2) * suminf_revenu((j+1), fun, 'func_add_pour_sum', j) + v * suminf_revenu(0, fun, 'func_min_pour_sum', j);
         
     end
 end
+
+% On calcule le revenu moyen
 B =  sum(pi_limite' .* r);
 
 

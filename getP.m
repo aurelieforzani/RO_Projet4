@@ -1,7 +1,17 @@
 function P = getP(S,s,fun)
+% Retourne la matrice de transition P
+%% EN ENTREE
+% S : int, nombre maximum d'articles en stock
+% s : int, nombre d'articles en stock en desous duquel il faut recommander
+% des articles
+% fin : String, nom de la fonction de probabilité utilisée
+%% EN SORTIE
+% P, matrice carrée de float de taille (S+1), matrice de transition des Xn
+%% DEBUT DE LA FONCTION
 
-
+%Initialisation de P
 P = zeros(S+1,S+1);
+
 % Parcourir les états Xn
 for i=0:S
     if (i>=s)
