@@ -1,4 +1,9 @@
-function [S,s] = main
+function [S,s, rev] = main
+
+% Renvoie S le nombre max d'articles en stock et s le nombre d'articles 
+% restants à partir duquel il faut recommander pour avoir un revenu moyen
+% maximal.
+
 %% EN ENTREE
 
 %% EN SORTIE
@@ -8,15 +13,12 @@ function [S,s] = main
 %% Déclaration des variables globales
 global n;
 global p;
-global theta;
 global lambda;
-global mu;
 
 %% Initialisation des variables locales (Smax sera recalculé selon la loi choisie)
-Smax = 30; % La dernière itération pour calculer S et s optimal
 C(1) = 5;  % Coût de stockage
 C(2) = 10; % Coût de pénurie
-C(3) = 10; % Partie constante du prix d'acaht
+C(3) = 10; % Partie constante du prix d'achat
 C(4) = 5;  % Partie variable du prix d'achat
 v = 20;    % Prix de vente
 
@@ -28,8 +30,8 @@ disp(" ======================================== ");
 disp(" ");
 
 x = 0;
-while (x ~= 1 && x~=2 && x~=3 && x~=5 && x~=4)
-    prompt = 'Veuillez choisir votre loi de probabilité des demandes : \n 1 - Loi Uniforme \n 2 - Loi Binomiale \n 3 - Loi de Poisson \n 4 - Loi Gaussienne \n 5 - Loi géométrique \n     >>>  ' ;
+while (x ~= 1 && x~=2 && x~=3)
+    prompt = 'Veuillez choisir votre loi de probabilité des demandes : \n 1 - Loi Uniforme \n 2 - Loi Binomiale \n 3 - Loi de Poisson \n      >>>  ' ;
     x = input(prompt);
 end
 
@@ -64,29 +66,9 @@ elseif (x == 3)
         prompt = 'Entrer le paramètre de la loi de poisson \n     >>>  ';
         lambda = input(prompt);
     end
+    Smax = 2 * lambda;
     nomLoi = 'poisson';
-elseif (x == 4)
-    %% Loi de gaussienne
-    theta = -9;
-    mu = 'a';
-    
-    prompt = 'Entrer la moyenne de la loi gaussienne \n     >>>  ';
-    mu = input(prompt);
-    
-    while (theta < 0 )
-        prompt = 'Entrer l écart-type de la loi gausienne \n     >>>  ';
-        theta = input(prompt);
-    end
-    nomLoi = 'gaussienne';
-elseif (x == 5)
-    %% Loi géométrique
-    p = -2;
-    
-    while (p <0 || p>1)
-        prompt = 'Entrer la probabilité de la loi géométrique \n     >>>  ';
-        p = input(prompt);
-    end
-    nomLoi = 'geometrique';
+
 end
     
 %% Calcul de S et s par itération
@@ -115,6 +97,9 @@ end
             end
         end
     end
+
+    return;
+
 end
 
 
